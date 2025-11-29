@@ -1,0 +1,12 @@
+{
+  "name": "owasp-llm-top10-matcher",
+  "version": "1.0.0",
+  "description": "Interactive OWASP Top 10 for LLMs matching challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
