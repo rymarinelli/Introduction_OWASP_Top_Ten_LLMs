@@ -3,6 +3,24 @@
 ## Room Introduction
 Welcome to the TryHackMe room focused on the OWASP Top 10 for Large Language Model (LLM) applications. In this guided lab you will explore common LLM-specific security weaknesses, practice spotting flawed prompt flows, and learn how to secure generative AI workloads. The room uses lightweight challenges to demonstrate issues hands-on before you apply the same mindset to your own projects.
 
+### Stack and launch options
+- The challenge runs on a single **Node.js + Express** service. There is no Flask component; you only need Node to host the game.
+- To start locally, install dependencies with `npm install` (once) and run `npm start` to serve the UI at `http://localhost:3000`.
+- If you are packaging this for a platform that prefers Python, keep the Node service as-is and reverse-proxy to it instead of mixing runtimes.
+
+### Deploying to a TryHackMe box
+Use one of the following approaches when preparing the room image:
+
+1) **Containerized (recommended)**
+   - Build the image: `docker build -t thm-owasp-llm .`
+   - Run it on boot: `docker run -d --restart=always -p 3000:3000 --name thm-owasp-llm thm-owasp-llm`
+   - Expose port `3000` from the box and point the task URL to `http://MACHINE_IP:3000`.
+
+2) **Bare Node.js service**
+   - Install Node 18+ and run `npm ci --omit=dev` to keep the footprint small.
+   - Start the app with `PORT=3000 npm start` (or place that command in a systemd unit/rc.local).
+   - Confirm it responds with `curl http://localhost:3000/api/game` before publishing the room.
+
 ## Learning Objectives
 - Recognize the OWASP Top 10 for LLMs and why they matter for real-world deployments.
 - Identify vulnerable LLM behaviors in conversation, code samples, and system configurations.
@@ -35,6 +53,11 @@ Welcome to the TryHackMe room focused on the OWASP Top 10 for Large Language Mod
 - Browser or preview tab is open to `http://MACHINE_IP:PORT`.
 - Mix-and-match panel responds to prompts (refresh if not).
 - Flag format confirmed as `THM{...}` before submission.
+
+## Preview the UI
+- The web page is a single-screen matching game that lists the ten OWASP categories with hints and explanations. Each category has a dropdown containing the shuffled descriptions.
+- When you click **Check my matches**, correct pairings are highlighted with per-category flags; once all ten are correct you see the final flag.
+- To see it in action locally, run `npm start` and browse to `http://localhost:3000`.
 
 ## Hints by Category
 - **LLM01 Prompt Injection**: Look for ways user input can override system or developer instructions; try classic “ignore previous instructions” style payloads.
