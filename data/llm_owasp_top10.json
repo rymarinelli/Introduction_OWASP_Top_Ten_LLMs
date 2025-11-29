@@ -1,0 +1,72 @@
+[
+  {
+    "category": "LLM01: Prompt Injection",
+    "description": "Manipulating prompts to force the model to ignore instructions or reveal hidden data.",
+    "hint": "Think about how an attacker might get the model to change roles mid-conversation.",
+    "explanation": "Prompt injections happen when user input overrides system instructions, leading to data leaks or unintended actions.",
+    "flag": "FLAG{prompt_shield_4932}"
+  },
+  {
+    "category": "LLM02: Insecure Output Handling",
+    "description": "Failing to sanitize model output before passing it to downstream systems.",
+    "hint": "Consider the risks of blindly executing or displaying model responses.",
+    "explanation": "Outputs can include malicious payloads that trigger in browsers, terminals, or other apps if not validated.",
+    "flag": "FLAG{safety_filter_8851}"
+  },
+  {
+    "category": "LLM03: Training Data Poisoning",
+    "description": "Injecting malicious or biased data into training corpora to influence model behavior.",
+    "hint": "How could someone nudge the model long before deployment?",
+    "explanation": "Poisoned data leads to backdoors, skewed predictions, or embedded exfiltration triggers in the model.",
+    "flag": "FLAG{clean_corpus_7110}"
+  },
+  {
+    "category": "LLM04: Model Inversion and Reconstruction",
+    "description": "Extracting sensitive training data or reproducing the model through systematic querying.",
+    "hint": "Imagine teasing out secrets by asking the right sequence of questions.",
+    "explanation": "Attackers can iteratively prompt models to reveal memorized data or replicate model parameters.",
+    "flag": "FLAG{shadow_queries_1297}"
+  },
+  {
+    "category": "LLM05: Data Leakage",
+    "description": "Accidentally exposing confidential information through model prompts, logs, or outputs.",
+    "hint": "Where might secrets sneak into prompts or completion logs?",
+    "explanation": "Sensitive data can leak via prompt context, system notes, or telemetry if not scrubbed.",
+    "flag": "FLAG{redact_before_send_5580}"
+  },
+  {
+    "category": "LLM06: Denial of Service",
+    "description": "Overwhelming the model or its host system to degrade availability or spike costs.",
+    "hint": "Think about resource exhaustion via crafted prompts or massive workloads.",
+    "explanation": "Complex prompts, recursive calls, or traffic floods can make LLM services unusable.",
+    "flag": "FLAG{rate_limit_ready_3482}"
+  },
+  {
+    "category": "LLM07: Supply Chain Vulnerabilities",
+    "description": "Using unvetted models, datasets, or plugins that introduce hidden risks.",
+    "hint": "What could sneak in through third-party components?",
+    "explanation": "Dependencies such as pre-trained weights or extensions might contain malware or backdoors.",
+    "flag": "FLAG{verified_sources_only_6409}"
+  },
+  {
+    "category": "LLM08: Excessive Agency",
+    "description": "Granting the model too much autonomy or access to sensitive tools and actions.",
+    "hint": "Consider what happens when the model can execute code or send emails without oversight.",
+    "explanation": "LLMs given broad privileges may perform harmful actions if prompted incorrectly or attacked.",
+    "flag": "FLAG{guardrails_on_5426}"
+  },
+  {
+    "category": "LLM09: Overreliance",
+    "description": "Trusting model outputs without human review, leading to errors or security gaps.",
+    "hint": "Who double-checks the model before decisions go live?",
+    "explanation": "Blind faith in LLM responses can propagate inaccuracies into code, policies, or alerts.",
+    "flag": "FLAG{human_in_the_loop_8621}"
+  },
+  {
+    "category": "LLM10: Model Theft",
+    "description": "Stealing proprietary model weights or architecture details through intrusion or API abuse.",
+    "hint": "How might an attacker walk away with the model itself?",
+    "explanation": "If access controls are weak, attackers can exfiltrate checkpoints or clone hosted endpoints.",
+    "flag": "FLAG{model_safe_warehouse_2305}"
+  }
+]

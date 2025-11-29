@@ -1,0 +1,144 @@
+:root {
+  --bg: #0e1116;
+  --card: #1a1f27;
+  --accent: #5ac8fa;
+  --text: #e8ecf2;
+  --muted: #a4adba;
+  --danger: #ff6b6b;
+  --success: #2ecc71;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(90, 200, 250, 0.12), transparent 25%),
+    radial-gradient(circle at 80% 0%, rgba(255, 107, 107, 0.12), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header, main, footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.help {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tip {
+  color: var(--accent);
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.category {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.category h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.hint {
+  margin: 0.25rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.explanation {
+  font-size: 0.9rem;
+  color: #c0c7d1;
+}
+
+label {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0f131a;
+  color: var(--text);
+}
+
+button {
+  background: linear-gradient(135deg, var(--accent), #9b5de5);
+  color: #0e1116;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 1rem 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.result {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 6px solid transparent;
+  margin-bottom: 1rem;
+}
+
+.result.correct {
+  border-color: var(--success);
+}
+
+.result.incorrect {
+  border-color: var(--danger);
+}
+
+.flag {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.final {
+  margin-top: 1rem;
+}
+
+.final-flag-card {
+  background: linear-gradient(135deg, rgba(90, 200, 250, 0.15), rgba(155, 93, 229, 0.15));
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer {
+  color: var(--muted);
+  text-align: center;
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWASP Top 10 for LLMs Matcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>OWASP Top 10 for LLMs: Matching Challenge</h1>
+    <p class="lead">Pair each category with the correct description to capture flags. Solve all pairs to reveal the final reward.</p>
+    <div class="help">
+      <p><strong>How to play:</strong> Read the hint and explanation, choose the description you believe matches the category, then hit <em>Check my matches</em>. Correct answers reveal per-category flags.</p>
+      <p class="tip">Pro tip: the descriptions are shuffled—slow down, compare hints, and think like a defender.</p>
+    </div>
+  </header>
+
+  <main>
+    <form id="match-form">
+      <div id="category-list" class="categories"></div>
+      <button type="submit">Check my matches</button>
+    </form>
+    <section id="results" aria-live="polite"></section>
+    <section id="final-flag" class="final"></section>
+  </main>
+
+  <footer>
+    <p>Need a nudge? Hints live under each category title. The validation endpoint sits at <code>/check</code> if you want to test via <code>curl</code>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
